@@ -1,0 +1,34 @@
+﻿<Window x:Class="WpfEntityCRUD.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfEntityCRUD"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="600">
+    <DockPanel>
+        <DataGrid x:Name="myDataGrid" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding id}" />
+                <DataGridTextColumn Header="Name" Binding="{Binding name}" />
+                <DataGridTextColumn Header="Gender" Binding="{Binding gender}" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="Action" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="insertBtn" Content="Insert" Click="insertBtn_Click" />
+                                <Button x:Name="updateBtn" Content="Update" Click="updateBtn_Click" />
+                                <Button x:Name="deleteBtn" Content="Delete" Click="deleteBtn_Click"  />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</Window>
